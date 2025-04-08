@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Code Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Python Code Visualizer</h1>
+
+    <textarea id="codeInput" placeholder="Enter Python Code..."></textarea>
+    <button id="executeButton">Execute</button>
+
+    <h2>Output</h2>
+    <pre id="outputDisplay"></pre>
+
+    <h2>Visualization</h2>
+    <pre id="codeSnippet"></pre>
+    <button id="prev">Previous Step</button>
+    <button id="next">Next Step</button>
+    <button id="play">Play</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+    
+    <div id="variables"></div>
+
+    <script src="{{ url_for('static', filename='js/input.js') }}"></script>
+</body>
+</html>

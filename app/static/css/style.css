@@ -1,0 +1,450 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+#code-container {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: left;
+}
+
+pre span {
+  display: block;
+  padding: 5px;
+}
+
+.highlight {
+  background: yellow;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#visualization {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.bar {
+  width: 30px;
+  background: blue;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+
+.swapping {
+  background: red !important;
+}
+
+.sorted {
+  background: green !important;
+}
+
+.bar {
+  display: inline-block;
+  width: 40px;
+  margin: 2px;
+  text-align: center;
+  background-color: blue; /* Default color */
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.i-index {
+  background-color: gray !important; /* Gray for `i` */
+}
+
+.j-index {
+  background-color: pink !important; /* Pink for `j` */
+}
+
+.swapping {
+  background-color: red !important; /* Red when swapping */
+}
+
+.sorted {
+  background-color: green !important; /* Green when sorted */
+}
+.correct {
+  background-color: lightgreen;
+}
+
+.highlight {
+  background-color: yellow !important; /* Highlighted line in code */
+}
+.index-text {
+  left: 10px;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.pivot {
+  background-color: red;
+}
+.active-range {
+  background-color: lightblue;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+textarea {
+  width: 80%;
+  height: 100px;
+}
+button {
+  margin: 10px;
+  padding: 10px;
+}
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  text-align: left;
+  overflow-x: auto;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+/* algo Sort Section Styles */
+.algo-sort-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.algo-sort-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.algo-sort-description p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Time Complexity Table */
+.complexity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.complexity-table th,
+.complexity-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.complexity-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.complexity-table td {
+  background-color: #f1f1f1;
+}
+
+/* Space Complexity */
+.space-complexity-heading {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+.space-complexity {
+  font-size: 16px;
+  color: #666;
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Merge Sort Section */
+.algo-sort-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.algo-sort-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.algo-sort-description p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Time Complexity Table */
+.complexity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.complexity-table th,
+.complexity-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.complexity-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.complexity-table td {
+  background-color: #f1f1f1;
+}
+
+/* Space Complexity */
+.space-complexity-heading {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #444;
+}
+
+.space-complexity {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Code Display Section */
+.code-container {
+  background: #222;
+
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 16px;
+  font-family: "Courier New", monospace;
+}
+
+/* Buttons */
+.language-buttons,
+.visualize-buttons {
+  margin: 20px auto;
+  text-align: center;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Button Colors */
+button#visualize {
+  background: #28a745;
+  color: white;
+}
+
+button#prev,
+button#next,
+button#play,
+button#stop,
+button#reset {
+  background: #007bff;
+  color: white;
+}
+
+/* Visualization Section */
+.var-vis {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#visualization {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bar {
+  width: 30px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+/* Highlighting Code Lines */
+.highlight {
+  background: yellow;
+  color: black;
+  font-weight: bold;
+}
+
+.responsive-table {
+  width: 80%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* Prevents text from breaking in small screens */
+}
+
+@media screen and (max-width: 768px) {
+  .bar {
+    width: 15px;
+  }
+
+  .responsive-table {
+    width: 100%;
+  }
+}
+
+.bar.shifting {
+  background-color: orange;
+}
+
+.bar.inserting {
+  background-color: rgb(81, 255, 0);
+}
+
+.current-index {
+  background-color: orange;
+}
+
+.bucket-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.bucket-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.bucket-bar {
+  background-color: #bbb;
+  transition: height 0.5s ease-in-out;
+}
+
+.highlight-bucket {
+  background-color: #ffcc00;
+  font-weight: bold;
+}
+
+.highlight-bar {
+  background-color: #ff6666 !important;
+}
+
+.output-section {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.output-number {
+  margin: 3px;
+  padding: 5px;
+  display: inline-block;
+  background-color: #eeeeee;
+  border-radius: 4px;
+}
+
+.newly-added {
+  background-color: #ff9999;
+  font-weight: bold;
+  transition: background-color 0.5s ease-in-out;
+}
+.highlight-bucket {
+  background-color: #ffcc00;
+  font-weight: bold;
+}
+
+.newly-added {
+  background-color: #ff9999;
+  font-weight: bold;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.highlight-index {
+  background-color: #99ccff;
+  font-weight: bold;
+  color: black;
+}
+
+.merge-index {
+  background-color: #66ff66;
+  font-weight: bold;
+  color: black;
+}
+
+.output-number {
+  padding: 5px;
+  margin: 2px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}

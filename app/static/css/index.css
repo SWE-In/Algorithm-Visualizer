@@ -1,0 +1,309 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #121212;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e1e;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    right: -250px;
+    top: 60px;
+    width: 250px;
+    height: 100%;
+    background: #272727;
+    transition: 0.3s;
+    padding: 5px;
+    z-index: 10;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #00ffcc;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 1px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 15px;
+}
+
+.sidebar ul li a:hover {
+    background: #00ffcc;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Main Content */
+.content {
+    padding: 20px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* Overlay (Dark Background Behind Sidebar) */
+.overlay-t {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    display: none;
+}
+
+/* Show Overlay When Sidebar is Active */
+.overlay-t.active {
+    display: block;
+}
+
+/* Complexity Section */
+.complexity-t {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #fff;
+}
+
+.complexity-title-t {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #cce0d1;
+    text-shadow: 0px 0px 2px #b6fff0;
+}
+
+/* Table Wrapper to Enable Scrolling */
+.complexity-container-t {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding: 10px 0;
+}
+
+/* Table Styling */
+.complexity-table-t {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 600px; /* Prevents column squishing */
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #222;
+    box-shadow: 0px 0px 2px rgba(0, 255, 204, 0.5);
+    table-layout: fixed; /* Ensures even column distribution */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+.complexity-table-t thead {
+    background: #00ffcc;
+    color: black;
+    font-size: 18px;
+}
+
+.complexity-table-t th,
+.complexity-table-t td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure Algorithm Column is Readable */
+.complexity-table-t td:first-child {
+    min-width: 130px; /* Ensures algorithm names have enough space */
+    text-align: left; /* Aligns text for better readability */
+    padding-left: 10px;
+}
+
+/* Alternating Row Colors */
+.complexity-table-t tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Effects */
+.complexity-table-t tbody tr:hover {
+    background: rgba(0, 255, 204, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+/* Highlight Best/Worst Cases */
+.complexity-table-t td:nth-child(2) {
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+.complexity-table-t td:nth-child(4) {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .complexity-container-t {
+        display: block;
+        width: 100%;
+        overflow-x: auto; /* Enables scrolling */
+        max-width: 100vw;
+    }
+
+    .complexity-table-t {
+        width: 100%;
+        min-width: 600px;
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .complexity-table-t th,
+    .complexity-table-t td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .complexity-title-t {
+        font-size: 22px;
+    }
+}
+/* Algorithm Cards Container */
+.algorithms-container-t3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual Algorithm Card */
+.algorithm-card-t3 {
+    background: #1e1e1e;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px; /* Fixed width for a proper layout */
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 255, 204, 0.3);
+    transition: 0.3s;
+}
+
+.algorithm-card-t3:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 255, 204, 0.5);
+}
+
+/* Algorithm Title */
+.algorithm-title-t3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #00ffcc;
+}
+
+/* Graph Container */
+.algorithm-graph-t3 {
+    width: 100%; /* Full width */
+    height: auto; /* Auto height to maintain aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Chart Canvas */
+.algorithm-graph-t3 canvas {
+    width: 100% !important; /* Full width of the card */
+    height: auto !important; /* Maintain aspect ratio */
+    max-height: 250px; /* Keeps it from getting too big */
+}
+
+/* Complexity Details */
+.algorithm-complexity-t3 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Color-coded complexity text */
+.best-case-t3 { color: #33ff99; }
+.average-case-t3 { color: #ffcc00; }
+.worst-case-t3 { color: #ff4444; }
+.space-complexity-t3 { color: #66aaff; }
+
+/* Example Array Styling */
+.array-t3 {
+    font-size: 14px;
+    font-style: italic;
+    color: #bbbbbb;
+    margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .algorithm-card-t3 {
+        width: 90%;
+    }
+    
+    .algorithm-graph-t3 canvas {
+        max-height: 200px; /* Reduce size for smaller screens */
+    }
+}
+.graph-container-t3 {
+    width: 100%;
+    height: 200px;  /* Square Graph */
+    position: relative;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Sort Visualizer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Bubble Sort Visualizer</h1>
+
+    <div id="language-buttons">
+      <button onclick="showCode('python')">Python</button>
+      <button onclick="showCode('cpp')">C++</button>
+      <button onclick="showCode('java')">Java</button>
+    </div>
+
+    <div id="code-container">
+      <pre id="code-display">
+            <!-- Code will be inserted dynamically -->
+        </pre>
+    </div>
+
+    <button id="visualize">Visualize</button>
+    <button id="prev" style="display: none">Previous Step</button>
+    <button id="next" style="display: none">Next Step</button>
+    <button id="play" style="display: none">Play</button>
+    <button id="stop" style="display: none">Stop</button>
+    <button id="reset" style="display: none">Reset</button>
+
+    <div id="variables"></div>
+    <div id="visualization"></div>
+
+    <script src="{{ url_for('static', filename='js/bubble_sort.js') }}"></script>
+  </body>
+</html>

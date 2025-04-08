@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Sort Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <section class="algo-sort-section">
+        <h2 class="algo-sort-title">Counting Sort Algorithm</h2>
+        <div class="algo-sort-description">
+            <p>Counting Sort is a non-comparative sorting algorithm that works well when the range of numbers is small compared to the input size.</p>
+        </div>
+
+        <h3 class="complexity-heading">Time Complexity</h3>
+        <table class="complexity-table">
+            <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>Time Complexity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Best Case</td>
+                    <td>O(n + k)</td>
+                </tr>
+                <tr>
+                    <td>Average Case</td>
+                    <td>O(n + k)</td>
+                </tr>
+                <tr>
+                    <td>Worst Case</td>
+                    <td>O(n + k)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="space-complexity-heading">Space Complexity</h3>
+        <p class="space-complexity">O(n + k) (due to auxiliary count array)</p>
+    </section>
+
+    <div id="language-buttons" class="language-buttons">
+        <button onclick="showCode('python')">Python</button>
+        <button onclick="showCode('cpp')">C++</button>
+        <button onclick="showCode('java')">Java</button>
+    </div>
+
+    <div id="code-container" class="code-container">
+        <pre id="code-display"></pre>
+    </div>
+
+    <section class="visualize-buttons">
+        <button id="visualize">Visualize</button>
+        <button id="prev" style="display: none">Previous Step</button>
+        <button id="next" style="display: none">Next Step</button>
+        <button id="play" style="display: none">Play</button>
+        <button id="stop" style="display: none">Stop</button>
+        <button id="reset" style="display: none">Reset</button>
+    </section>
+
+    <div class="var-vis">
+        <div id="variables"></div>
+    </div>
+
+    <div id="visualization"></div>
+
+    <script src="{{ url_for('static', filename='js/counting_sort.js') }}"></script>
+
+</body>
+</html>

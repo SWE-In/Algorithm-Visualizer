@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big O Complexity Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        width: 500px !important;
+        height: 400px !important;
+        margin: 20px auto;
+      }
+      .custom-legend {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .legend-item {
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        color: black;
+        font-size: 14px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Time Complexity Curves</h2>
+
+    <div class="custom-legend">
+      <span class="legend-item" style="background-color: rgba(255, 0, 0, 0.2)"
+        >O(1)</span
+      >
+      <span class="legend-item" style="background-color: rgba(255, 165, 0, 0.2)"
+        >O(log n)</span
+      >
+      <span class="legend-item" style="background-color: rgba(0, 0, 255, 0.2)"
+        >O(n)</span
+      >
+      <span class="legend-item" style="background-color: rgba(128, 0, 128, 0.2)"
+        >O(n log n)</span
+      >
+      <span class="legend-item" style="background-color: rgba(0, 128, 0, 0.2)"
+        >O(n²)</span
+      >
+    </div>
+
+    <canvas id="graph"></canvas>
+
+    <script>
+      // ✨ Plugin to place labels near the end of the line, centered vertically
+      const labelPlugin = {
+        id: "lineLabel",
+        afterDatasetsDraw(chart) {
+          const { ctx } = chart;
+          ctx.save();
+          chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            const points = meta.data;
+            if (points.length < 2) return;
+
+            // Choose a point ~80% from start, not all the way at the end
+            const pointIndex = Math.floor(points.length * 0.8);
+            const point = points[pointIndex];
+
+            if (point) {
+              ctx.font = "bold 32px Arial";
+              ctx.fillStyle = dataset.borderColor;
+              ctx.textBaseline = "middle"; // align to center vertically
+              ctx.fillText(dataset.label, point.x - 100, point.y + 20);
+            }
+          });
+          ctx.restore();
+        },
+      };
+
+      Chart.register(labelPlugin);
+
+      const ctx = document.getElementById("graph").getContext("2d");
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          datasets: [
+            {
+              label: "O(1)",
+              data: Array.from({ length: 15 }, (_, x) => ({ x, y: 1.5 })),
+              borderColor: "red",
+              backgroundColor: "rgba(255, 0, 0, 0.1)",
+              borderWidth: 4,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true,
+            },
+            {
+              label: "O(log n)",
+              data: [
+                { x: 0, y: 0 },
+                { x: 1, y: 0.5 },
+                { x: 2, y: 1 },
+                { x: 3, y: 1.5 },
+                { x: 4, y: 2 },
+                { x: 5, y: 2.3 },
+                { x: 6, y: 2.6 },
+                { x: 7, y: 2.8 },
+              ],
+              borderColor: "orange",
+              backgroundColor: "rgba(255, 165, 0, 0.1)",
+              borderWidth: 4,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true,
+            },
+            {
+              label: "O(n)",
+              data: Array.from({ length: 8 }, (_, x) => ({ x, y: x })),
+              borderColor: "blue",
+              backgroundColor: "rgba(0, 0, 255, 0.1)",
+              borderWidth: 4,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true,
+            },
+            {
+              label: "O(n log n)",
+              data: [
+              { x: 0, y: 0 },
+              { x: 1, y: 1.8 },
+              { x: 2, y: 2.9 },
+              { x: 3, y: 3.4 },
+              { x: 4, y: 3.85 },
+              { x: 5, y: 4.0 },  
+              { x: 6, y: 4.15 },
+              { x: 7, y: 4.25 },
+              { x: 8, y: 4.32 },
+              { x: 9, y: 4.36 },
+              { x: 10, y: 4.39 },
+              { x: 11, y: 4.42 },
+              { x: 12, y: 4.46 },
+              { x: 13, y: 4.50 },
+              { x: 14, y: 4.54 },
+              { x: 15, y: 4.57 }
+              ],
+              borderColor: "purple",
+              backgroundColor: "rgba(128, 0, 128, 0.1)",
+              borderWidth: 4,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true,
+            },
+            {
+              label: "O(n²)",
+              data: Array.from({ length: 8 }, (_, x) => ({ x, y: x * x })),
+              borderColor: "green",
+              backgroundColor: "rgba(0, 128, 0, 0.1)",
+              borderWidth: 4,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            lineLabel: {},
+          },
+          scales: {
+            x: {
+              type: "linear",
+              title: {
+                display: true,
+                text: "Input Size (n)",
+                color: "black",
+                font: { size: 50 },
+              },
+              min: 0,
+              max: 15,
+              grid: { display: false },
+              ticks: { display: true },
+              border: { color: "black", width: 3 },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "Operations",
+                color: "black",
+                font: { size: 50 },
+              },
+              min: 0,
+              max: 15,
+              grid: { display: false },
+              ticks: { display: true },
+              border: { color: "black", width: 3 },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

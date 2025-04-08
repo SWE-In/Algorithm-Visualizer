@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radix Sort Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <section class="algo-sort-section">
+        <h2 class="algo-sort-title">Radix Sort Algorithm</h2>
+        <div class="algo-sort-description">
+            <p>Radix Sort is a non-comparative sorting algorithm that sorts numbers digit by digit from least significant to most significant.</p>
+        </div>
+
+        <h3 class="complexity-heading">Time Complexity</h3>
+        <table class="complexity-table">
+            <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>Time Complexity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Best Case</td>
+                    <td>O(nk)</td>
+                </tr>
+                <tr>
+                    <td>Average Case</td>
+                    <td>O(nk)</td>
+                </tr>
+                <tr>
+                    <td>Worst Case</td>
+                    <td>O(nk)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="space-complexity-heading">Space Complexity</h3>
+        <p class="space-complexity">O(n + k) (due to auxiliary arrays for counting sort at each digit level)</p>
+    </section>
+
+    <div id="language-buttons" class="language-buttons">
+        <button onclick="showCode('python')">Python</button>
+        <button onclick="showCode('cpp')">C++</button>
+        <button onclick="showCode('java')">Java</button>
+    </div>
+
+    <div id="code-container" class="code-container">
+        array = [55, 45, 75, 90, 80, 40, 49, 66];
+        <pre id="code-display"></pre>
+    </div>
+
+    <section class="visualize-buttons">
+        <button id="visualize">Visualize</button>
+        <button id="prev" style="display: none">Previous Step</button>
+        <button id="next" style="display: none">Next Step</button>
+        <button id="play" style="display: none">Play</button>
+        <button id="stop" style="display: none">Stop</button>
+        <button id="reset" style="display: none">Reset</button>
+    </section>
+
+    <div class="var-vis">
+        <div id="variables"></div>
+    </div>
+
+    <div id="visualization"></div>
+
+    <script src="{{ url_for('static', filename='js/radix_sort.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Algorithm Visualizer</div>
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <!-- Overlay -->
+<div class="overlay-t" id="overlay" onclick="toggleSidebar()"></div>
+
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+       <!-- <button class="close-btn" onclick="toggleSidebar()">
+            <i class="fa fa-close"></i>
+        </button> -->
+        <h2>Algorithms</h2>
+        <ul>
+            <li><a href="{{ url_for('bubble_sort') }}"><i class="fa fa-circle"></i> Bubble Sort</a></li>
+            <li><a href="{{ url_for('quick_sort') }}"><i class="fa fa-circle"></i> Quick Sort</a></li>
+            <li><a href="{{ url_for('merge_sort') }}"><i class="fa fa-circle"></i> Merge Sort</a></li>
+            <li><a href="{{ url_for('selection_sort') }}"><i class="fa fa-circle"></i> Selection Sort</a></li>
+            <li><a href="{{ url_for('insertion_sort') }}"><i class="fa fa-circle"></i> Insertion Sort</a></li>
+            <li><a href="{{ url_for('heap_sort') }}"><i class="fa fa-circle"></i> Heap Sort</a></li>
+            <li><a href="{{ url_for('shell_sort') }}"><i class="fa fa-circle"></i> Shell Sort</a></li>
+            <li><a href="{{ url_for('counting_sort') }}"><i class="fa fa-circle"></i> Count Sort</a></li>
+            <li><a href="{{ url_for('radix_sort') }}"><i class="fa fa-circle"></i> Radix Sort</a></li>
+            <li><a href="{{ url_for('bucket_sort') }}"><i class="fa fa-circle"></i> Bucket Sort</a></li>
+            <li><a href="{{ url_for('input_page') }}"><i class="fa fa-circle"></i> Input</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content">
+        <h1>Welcome to Algorithm Visualizer</h1>
+        <p>Select an algorithm from the menu to visualize it.</p>
+
+        <!-- Time & Space Complexity Section -->
+<section class="complexity-t">
+    <h2 class="complexity-title-t">Time & Space Complexity of Sorting Algorithms</h2>
+    <div class="complexity-container-t">
+        <table class="complexity-table-t">
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Best Case</th>
+                    <th>Average Case</th>
+                    <th>Worst Case</th>
+                    <th>Space Complexity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bubble Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Quick Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n²)</td>
+                    <td>O(log n)</td>
+                </tr>
+                <tr>
+                    <td>Merge Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n)</td>
+                </tr>
+                <tr>
+                    <td>Selection Sort</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Insertion Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Heap Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Shell Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Counting Sort</td>
+                    <td>O(n + k)</td>
+                    <td>O(n + k)</td>
+                    <td>O(n + k)</td>
+                    <td>O(k)</td>
+                </tr>
+                <tr>
+                    <td>Radix Sort</td>
+                    <td>O(nk)</td>
+                    <td>O(nk)</td>
+                    <td>O(nk)</td>
+                    <td>O(n + k)</td>
+                </tr>
+                <tr>
+                    <td>Bucket Sort</td>
+                    <td>O(n + k)</td>
+                    <td>O(n + k)</td>
+                    <td>O(n²)</td>
+                    <td>O(n + k)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- Algorithms Cards Section -->
+<section class="algorithms-container-t3">
+    
+    <!-- Bubble Sort Card -->
+    <div class="algorithm-card-t3">
+        <h2 class="algorithm-title-t3">Bubble Sort</h2>
+    
+        <!-- Graph Container -->
+        <div class="algorithm-graph-t3">
+            <canvas id="bubbleSortGraph"></canvas>
+        </div>
+    
+        <!-- Complexity Details -->
+        <p class="algorithm-complexity-t3 best-case-t3">Best Case: O(n)</p>
+        <p class="array-t3">[1, 2, 3, 4, 5, 6, 7] (Already sorted)</p>
+    
+        <p class="algorithm-complexity-t3 average-case-t3">Average Case: O(n²)</p>
+        <p class="array-t3">[6, 1, 7, 3, 5, 2, 4]</p>
+    
+        <p class="algorithm-complexity-t3 worst-case-t3">Worst Case: O(n²)</p>
+        <p class="array-t3">[7, 6, 5, 4, 3, 2, 1] (Reverse sorted)</p>
+    
+        <p class="algorithm-complexity-t3 space-complexity-t3">Space Complexity: O(1)</p>
+    </div>
+    
+
+    <!-- Quick Sort Card -->
+    <div class="algorithm-card-t3">
+        <h3 class="algorithm-title-t3">Quick Sort</h3>
+        <p class="algorithm-complexity-t3"><span class="best-case-t3">Best Case:</span> O(n log n)</p>
+        <p class="array-t3">[4, 2, 6, 1, 3, 5, 7]</p>
+        <p class="algorithm-complexity-t3"><span class="average-case-t3">Average Case:</span> O(n log n)</p>
+        <p class="array-t3">[6, 1, 7, 3, 5, 2, 4]</p>
+        <p class="algorithm-complexity-t3"><span class="worst-case-t3">Worst Case:</span> O(n²)</p>
+        <p class="array-t3">[1, 2, 3, 4, 5, 6, 7] (Already sorted)</p>
+        <p class="space-complexity-t3">Space Complexity: O(log n)</p>
+    </div>
+
+    <!-- Merge Sort Card -->
+    <div class="algorithm-card-t3">
+        <h3 class="algorithm-title-t3">Merge Sort</h3>
+        <p class="algorithm-complexity-t3"><span class="best-case-t3">Best Case:</span> O(n log n)</p>
+        <p class="array-t3">[4, 1, 3, 7, 6, 2, 5]</p>
+        <p class="algorithm-complexity-t3"><span class="average-case-t3">Average Case:</span> O(n log n)</p>
+        <p class="array-t3">[5, 3, 7, 2, 6, 4, 1]</p>
+        <p class="algorithm-complexity-t3"><span class="worst-case-t3">Worst Case:</span> O(n log n)</p>
+        <p class="array-t3">[7, 6, 5, 4, 3, 2, 1]</p>
+        <p class="space-complexity-t3">Space Complexity: O(n)</p>
+    </div>
+
+    <!-- Selection Sort Card -->
+    <div class="algorithm-card-t3">
+        <h3 class="algorithm-title-t3">Selection Sort</h3>
+        <p class="algorithm-complexity-t3"><span class="best-case-t3">Best Case:</span> O(n²)</p>
+        <p class="array-t3">[1, 2, 3, 4, 5, 6, 7]</p>
+        <p class="algorithm-complexity-t3"><span class="average-case-t3">Average Case:</span> O(n²)</p>
+        <p class="array-t3">[6, 1, 5, 3, 7, 2, 4]</p>
+        <p class="algorithm-complexity-t3"><span class="worst-case-t3">Worst Case:</span> O(n²)</p>
+        <p class="array-t3">[7, 6, 5, 4, 3, 2, 1]</p>
+        <p class="space-complexity-t3">Space Complexity: O(1)</p>
+    </div>
+
+    <!-- Insertion Sort Card -->
+    <div class="algorithm-card-t3">
+        <h3 class="algorithm-title-t3">Insertion Sort</h3>
+        <p class="algorithm-complexity-t3"><span class="best-case-t3">Best Case:</span> O(n)</p>
+        <p class="array-t3">[1, 2, 3, 4, 5, 6, 7]</p>
+        <p class="algorithm-complexity-t3"><span class="average-case-t3">Average Case:</span> O(n²)</p>
+        <p class="array-t3">[5, 2, 4, 1, 6, 3, 7]</p>
+        <p class="algorithm-complexity-t3"><span class="worst-case-t3">Worst Case:</span> O(n²)</p>
+        <p class="array-t3">[7, 6, 5, 4, 3, 2, 1]</p>
+        <p class="space-complexity-t3">Space Complexity: O(1)</p>
+    </div>
+
+    <!-- Heap Sort Card -->
+    <div class="algorithm-card-t3">
+        <h3 class="algorithm-title-t3">Heap Sort</h3>
+        <p class="algorithm-complexity-t3"><span class="best-case-t3">Best Case:</span> O(n log n)</p>
+        <p class="array-t3">[3, 1, 6, 5, 7, 2, 4]</p>
+        <p class="algorithm-complexity-t3"><span class="average-case-t3">Average Case:</span> O(n log n)</p>
+        <p class="array-t3">[6, 3, 1, 5, 2, 4, 7]</p>
+        <p class="algorithm-complexity-t3"><span class="worst-case-t3">Worst Case:</span> O(n log n)</p>
+        <p class="array-t3">[7, 6, 5, 4, 3, 2, 1]</p>
+        <p class="space-complexity-t3">Space Complexity: O(1)</p>
+    </div>
+
+</section>
+
+
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let ctx = document.getElementById("bubbleSortGraph").getContext("2d");
+    
+            new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: ["", "", "", "", "", ""],  // No actual points, just empty labels for smooth curve
+                    datasets: [
+                        {
+                            label: "Best Case: O(n)",
+                            borderColor: "green",
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.4,  // Smooth Curve
+                            data: [0, 1, 2, 3, 4, 5]
+                        },
+                        {
+                            label: "Average Case: O(n²)",
+                            borderColor: "orange",
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.4,  // Smooth Curve
+                            data: [0, 1, 4, 9, 16, 25]
+                        },
+                        {
+                            label: "Worst Case: O(n²)",
+                            borderColor: "red",
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.4,  // Smooth Curve
+                            data: [0, 1, 4, 9, 16, 25]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    elements: { point: { radius: 0 } },  // No points on curve
+                    scales: {
+                        x: { display: false },  // Hide x-axis labels
+                        y: { display: false }   // Hide y-axis labels
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: "white" }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
